@@ -1,42 +1,37 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
+
+import { cssReset } from './cssReset';
+
+const config: ThemeConfig = {
+  initialColorMode: 'dark',
+  useSystemColorMode: false,
+};
 
 export const theme = extendTheme({
-  styles: {
-    global: {
-      '*, *::before, *::after': {
-        boxSizing: 'border-box',
+  config,
+  semanticTokens: {
+    colors: {
+      primary: {
+        default: '#523F38',
+        _light: '#32f',
       },
-
-      '*': {
-        margin: '0',
+      title: {
+        default: 'black',
       },
-
-      'html, body': {
-        height: '100%',
-      },
-
-      body: {
-        lineHeight: 1.5,
-        webkitFontSmoothing: 'antialiased',
-      },
-
-      'img, picture, video, canvas, svg': {
-        display: 'block',
-        maxInlineSize: '100%',
-      },
-
-      'input, button, textarea, select ': {
-        font: 'inherit',
-      },
-
-      'p, h1, h2, h3, h4, h5, h6': {
-        overflowWrap: 'break-word',
-      },
-
-      '#root, #__next': {
-        isolation: 'isolate',
-        height: '100%',
+      paragraph: {
+        default: 'black',
       },
     },
+  },
+  styles: {
+    global: ({ colorMode }) => ({
+      ...cssReset,
+      '*': {
+        'font-family': 'Source Serif Pro',
+      },
+      body: {
+        bg: 'primary',
+      },
+    }),
   },
 });

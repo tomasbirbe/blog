@@ -16,10 +16,10 @@ export const theme = extendTheme({
         _light: '#32f',
       },
       title: {
-        default: 'black',
+        default: 'white',
       },
       paragraph: {
-        default: 'black',
+        default: 'white',
       },
     },
   },

@@ -1,6 +1,6 @@
 ---
 title: Fundamentos de Next.js
-date: 4/3/2022
+date: 3/4/2022
 description: Si queres entender la diferencia entre Server-Side Rendering, Static-Site Generetion y Client Side Rendering, definitivamente vas a querer leer este post. 
 howItTakes: 9 minutos 
 ---

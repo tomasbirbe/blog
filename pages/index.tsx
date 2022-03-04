@@ -11,7 +11,7 @@ interface Params {
 
 export default function Home({ posts }: Params) {
   return (
-    <Container maxW={{ base: '300px', sm: '500px', md: '600px', lg: '700px' }}>
+    <Container maxW={{ base: '100%', sm: '500px', md: '600px', lg: '700px' }}>
       <Head>
         <title>Blog de tomas birbe</title>
         <meta content="Blog personal de Tomas Birbe" name="description" />

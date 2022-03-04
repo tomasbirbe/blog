@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import 'dayjs/locale/es-mx';
 
 export function formatDate(date) {
   dayjs.locale('es-mx');

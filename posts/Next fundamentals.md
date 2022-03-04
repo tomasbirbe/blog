@@ -15,7 +15,7 @@ Un ejemplo puede ser cuando los desarrolladores usan TypeScript. A pesar de que 
 
 Por esto mismo es que TypeScript se compila a una versión de JavaScript que sea soportada por la mayoría de los navegadores
 
-![Image about compiling process](/next/compiling.png "compiling-process")
+![Image about compiling process](/next-fundamentals/compiling.png "compiling-process")
 
 Este proceso ocurre durante la fase de desarrollo mientras editamos nuestro código como "preparación" para la fase de producción
 
@@ -23,7 +23,7 @@ Este proceso ocurre durante la fase de desarrollo mientras editamos nuestro cód
 
 Los desarrolladores escriben código que sea fácil de leer para los humanos. El código puede contener información extra que no es necesaria para que el código funcione, como comentarios, espacios, identaciones y múltiples líneas
 
-![Image about minifying process](/next/minifying.png "minifying-process")
+![Image about minifying process](/next-fundamentals/minifying.png "minifying-process")
 
 El proceso de minifying un archivo es remover el código innecesario como el formateo y los comentarios sin cambiar la funcionalidad del código
 
@@ -35,7 +35,7 @@ En Next.js, los archivos JavaScript y CSS son automaticamente minificados cuando
 
 Habitualmente los desarrolladores "rompen" la aplicacion en modulos, componentes y funciones ya que, si no fuese asi, las aplicaciones serian monolitos llenos de informacion y seria ininteligible.
 
-![Image about bundling process](/next/bundling.png "bundling-process")
+![Image about bundling process](/next-fundamentals/bundling.png "bundling-process")
 
 ## Que es code splitting?
 
@@ -43,7 +43,7 @@ Normalmente los desarrolladores dividen la aplicacion en distintas paginas que p
 
 Code splitting es el proceso de separar el bundle de la aplicacion en "chunks" mas pequeños
 
-![Image about code splitting process](/next/code-splitting.png "code-splitting")
+![Image about code splitting process](/next-fundamentals/code-splitting.png "code-splitting")
 
 Next.js realiza esta tarea automaticamente con cada elemento que este dentro de `/pages` separando cada uno en distintos bundles.
 
@@ -53,7 +53,7 @@ El code splitting automatico tambien ocurre en los siguientes casos
 
 - Despues de la carga inicial, Next.js puede comenzar a pre-cargar el codigo de otras paginas que el usuario posiblemente navegue
 
-- [Dynamic Imports](https://nextjs.org/docs/advanced-features/dynamic-import) es otra forma de dividir manualmente el codigo que carga inicialmente
+- [Dynamic Imports](https://next-fundamentalsjs.org/docs/advanced-features/dynamic-import) es otra forma de dividir manualmente el codigo que carga inicialmente
 
 ---
 
@@ -93,7 +93,7 @@ Es decir, siempre que el rendering ocurra antes de que el cliente reciba la resp
 
 En las aplicaciones que solamente utilizan React, el navegador recibe un HTML vacio desde el servidor junto con las instrucciones JavaScript para construir la UI. Esto es llamado **Client-Side Rendering** porque el rendering inicial ocurre en el dispositivo del usuario.
 
-![Image about client side rendering process](/next/client-side-rendering.png "client-side-rendering")
+![Image about client side rendering process](/next-fundamentals/client-side-rendering.png "client-side-rendering")
 
 > *Nota: Podes optar por usar CSR para componentes especificos en tu aplicacion Next.js haciendo fetching de la data con useEffect  o un hook de data fetching como useSWR*
 
@@ -101,7 +101,7 @@ En contraste, Next.js pre-renderiza cada pagina por defecto. Pre-rendering signi
 
 En la practica, esto significa que en una aplicacion completamente renderizada con CSR, el usuario va a a ver una pagina en blanco mientras el rendering esta realizandose. Comparado al pre-rendering, donde el usuario ve un HTML estructurado.
 
-![Image about pre rendering process](/next/pre-rendering.png "pre-rendering")
+![Image about pre rendering process](/next-fundamentals/pre-rendering.png "pre-rendering")
 
 Vamos a charlar un poco sobre los dos tipos de rendering.
 
@@ -119,7 +119,7 @@ Es importante notar que el SSG ocurre en runtime. Es decir, tenemos el servidor 
 
 Con SSG, el HTML es generado en el servidor, pero a diferencia del SSR, no hay un servidor en runtime, por lo tanto, no podemos hacer consultas al servidor ni recibir informacion de este. En lugar de ocurrir en runtime, el contenido se genera una sola vez en build time, cuando la aplicacion es deployada y el HTML es guardado en un CDN y re usado por cada consulta.
 
-> *Nota: Es importante conocer que es un CDN. Podes indagar un poco mas en [What is a network?](https://nextjs.org/learn/foundations/how-nextjs-works/cdns-and-edge)*
+> *Nota: Es importante conocer que es un CDN. Podes indagar un poco mas en [What is a network?](https://next-fundamentalsjs.org/learn/foundations/how-nextjs-works/cdns-and-edge)*
 > *Nota: Podes usar Incremental Static Regeneration para crear o actualizar paginas estaticas despues de que hayas buildeado tu sitio. Esto significa que no tenes que re buildear tu sitio entero si tu informacion cambia*
 
 La belleza de Next.js es que podes elegir el metodo de rendering mas apropiado para tu caso de uso pagina a pagina.

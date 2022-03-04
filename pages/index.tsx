@@ -1,6 +1,8 @@
 import { Container, Stack, Text } from '@chakra-ui/react';
 import Head from 'next/head';
 
+import { getPosts } from '../lib/getPosts';
+
 export default function Home() {
   return (
     <Container paddingBlockStart={6}>

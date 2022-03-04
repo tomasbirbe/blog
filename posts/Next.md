@@ -1,28 +1,30 @@
 ---
-title: Next
-date: 4-3-2022
+title: Fundamentos de Next.js
+date: 4/3/2022
+description: Los fundamentos de Next para poder comprender mejor su funcionamiento y entender que metodo de rendering usar
+howItTakes: 9 minutos 
 ---
 
-
-# Next
+Hola! Esto es una traduccion personal sobre la documentacion basica de Next.js. El objetivo es facilitar esta informacion ya que ademas de estar traducido al español, tambien es lo que me ayudo a entender mejor que es Next.js y sus metodos de rendering. Vamos a eso!
 
 ## Que es compiling?
 
 Compiling o tiempo de compilación, se refiere al proceso de tomar el código en un lenguaje y transformarlo en otro lenguaje o bien, en otra versión del mismo lenguaje
 
-Un ejemplo puede ser cuando los desarrolladores usan TypeScript. A pesar de que es un lenguaje cómodo y seguro de utilizar, los navegadores no lo comprenden. 
+Un ejemplo puede ser cuando los desarrolladores usan TypeScript. A pesar de que es un lenguaje cómodo y seguro de utilizar, los navegadores no lo comprenden.
 
 Por esto mismo es que TypeScript se compila a una versión de JavaScript que sea soportada por la mayoría de los navegadores
 
-![](./assets/compiling.png "compiling-process")
+![Image about compiling process](/next/compiling.png "compiling-process")
 
-Este proceso ocurre durante la fase de desarrollo mientras editamos nuestro código como "preparación" para la fase de producción 
+Este proceso ocurre durante la fase de desarrollo mientras editamos nuestro código como "preparación" para la fase de producción
 
-## Que es la minifying?
+## Que es minifying?
 
 Los desarrolladores escriben código que sea fácil de leer para los humanos. El código puede contener información extra que no es necesaria para que el código funcione, como comentarios, espacios, identaciones y múltiples líneas
 
-![](./assets/minifying.png "minifying-process")
+![Image about minifying process](/next/minifying.png "minifying-process")
+
 El proceso de minifying un archivo es remover el código innecesario como el formateo y los comentarios sin cambiar la funcionalidad del código
 
 El objetivo de este proceso es disminuir el peso de los archivos para mejorar el rendimiento
@@ -33,7 +35,7 @@ En Next.js, los archivos JavaScript y CSS son automaticamente minificados cuando
 
 Habitualmente los desarrolladores "rompen" la aplicacion en modulos, componentes y funciones ya que, si no fuese asi, las aplicaciones serian monolitos llenos de informacion y seria ininteligible.
 
-![Image about bundling process](./assets/bundling.png "bundling-process")
+![Image about bundling process](/next/bundling.png "bundling-process")
 
 ## Que es code splitting?
 
@@ -41,7 +43,7 @@ Normalmente los desarrolladores dividen la aplicacion en distintas paginas que p
 
 Code splitting es el proceso de separar el bundle de la aplicacion en "chunks" mas pequeños
 
-![Image about code splitting process](./assets/code-splitting.png "code-splitting")
+![Image about code splitting process](/next/code-splitting.png "code-splitting")
 
 Next.js realiza esta tarea automaticamente con cada elemento que este dentro de `/pages` separando cada uno en distintos bundles.
 
@@ -51,7 +53,9 @@ El code splitting automatico tambien ocurre en los siguientes casos
 
 - Despues de la carga inicial, Next.js puede comenzar a pre-cargar el codigo de otras paginas que el usuario posiblemente navegue
 
-- [Dynamic Imports]([Advanced Features: Dynamic Import | Next.js](https://nextjs.org/docs/advanced-features/dynamic-import)) es otra forma de dividir manualmente el codigo que carga inicialmente
+- [Dynamic Imports](https://nextjs.org/docs/advanced-features/dynamic-import) es otra forma de dividir manualmente el codigo que carga inicialmente
+
+---
 
 ## Build time vs Production time
 
@@ -69,6 +73,8 @@ Cuando buildeas tu aplicacion, Next.js va a transformar tu codigo en archivos op
 
 **Runtime** es el periodo de tiempo cuando tu aplicacion corre en respuesta a una consulta del usuario, despues de que tu aplicacion fue buildeada y deployada
 
+---
+
 ## Que es el rendering?
 
 Hay una unidad inesquivable de trabajo para convertir el codigo que escribiste en React a una representacion HTML de tu interfaz. Este proceso se llama **rendering**.
@@ -79,7 +85,7 @@ Con Next.js, hay tres tipos de rendering disponibles. **Server-Side Rendering** 
 
 ### Pre-Rendering
 
-SSR y SSG son tambien referidos a pre-rendering porque la busqueda de informacion externa (nuestra aplicacion o partes de ella) y la transformacion de los componentes React a HTML (rendering) ocurre antes de que el resultado sea enviado al cliente. 
+SSR y SSG son tambien referidos a pre-rendering porque la busqueda de informacion externa (nuestra aplicacion o partes de ella) y la transformacion de los componentes React a HTML (rendering) ocurre antes de que el resultado sea enviado al cliente.
 
 Es decir, siempre que el rendering ocurra antes de que el cliente reciba la respuesta, se considera pre-rendering. Entonces, SSR y SSG son formas de pre-rendering porque el rendering ocurre en el servidor, antes de que el cliente reciba la respuesta.
 
@@ -87,19 +93,15 @@ Es decir, siempre que el rendering ocurra antes de que el cliente reciba la resp
 
 En las aplicaciones que solamente utilizan React, el navegador recibe un HTML vacio desde el servidor junto con las instrucciones JavaScript para construir la UI. Esto es llamado **Client-Side Rendering** porque el rendering inicial ocurre en el dispositivo del usuario.
 
-![Image about client side rendering process](./assets/client-side-rendering.png "client-side-rendering")
-
-
+![Image about client side rendering process](/next/client-side-rendering.png "client-side-rendering")
 
 > *Nota: Podes optar por usar CSR para componentes especificos en tu aplicacion Next.js haciendo fetching de la data con useEffect  o un hook de data fetching como useSWR*
-
-
 
 En contraste, Next.js pre-renderiza cada pagina por defecto. Pre-rendering significa que el HTML es generado por adelantado en el servidor en lugar de tenerlo todo hecho por JavaScript en el dispositivo del usuario.
 
 En la practica, esto significa que en una aplicacion completamente renderizada con CSR, el usuario va a a ver una pagina en blanco mientras el rendering esta realizandose. Comparado al pre-rendering, donde el usuario ve un HTML estructurado.
 
-![Image about pre rendering process](./assets/pre-rendering.png "pre-rendering")
+![Image about pre rendering process](/next/pre-rendering.png "pre-rendering")
 
 Vamos a charlar un poco sobre los dos tipos de rendering.
 
@@ -109,28 +111,15 @@ Con SSR, el HTML de la pagina es generado en el servidor por **cada** request. E
 
 En el cliente, el HTML es usado para mostrar una rapida pagina no interactiva, mientras React usa la informacion en JSON y las instrucciones JavaScript para hacer los componentes interactivos. Este ultimo proceso se llama **hidratacion**
 
-
-
 Es importante notar que el SSG ocurre en runtime. Es decir, tenemos el servidor disponible para hacer request y recibir responses.
-
-
 
 > *Nota para el futuro: Existen los [React Server Components](https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html) en fase alpha. Basicamente son componentes React que se generan en el servidor y no es necesario enviar nada de JavaScript al servidor ya que la logica se corre en el servidor y este solo envia la data resultante de la logica ejecutada*
 
-
-
 ### Static Site Generation
 
-Con SSG, el HTML es generado en el servidor, pero a diferencia del SSR, no hay un servidor en runtime, por lo tanto, no podemos hacer consultas al servidor ni recibir informacion de este. En lugar de ocurrir en runtime, el contenido se genera una sola vez en build time, cuando la aplicacion es deployada y el HTML es guardado en un CDN y re usado por cada consulta. 
+Con SSG, el HTML es generado en el servidor, pero a diferencia del SSR, no hay un servidor en runtime, por lo tanto, no podemos hacer consultas al servidor ni recibir informacion de este. En lugar de ocurrir en runtime, el contenido se genera una sola vez en build time, cuando la aplicacion es deployada y el HTML es guardado en un CDN y re usado por cada consulta.
 
-
-
-> *Nota: Es importante conocer que es un CDN. Podes indagar un poco mas en [What is a network?]([What is the Network? - How Next.js Works | Learn Next.js](https://nextjs.org/learn/foundations/how-nextjs-works/cdns-and-edge))*
-
-
-
+> *Nota: Es importante conocer que es un CDN. Podes indagar un poco mas en [What is a network?](https://nextjs.org/learn/foundations/how-nextjs-works/cdns-and-edge)*
 > *Nota: Podes usar Incremental Static Regeneration para crear o actualizar paginas estaticas despues de que hayas buildeado tu sitio. Esto significa que no tenes que re buildear tu sitio entero si tu informacion cambia*
 
-
-
-La belleza de Next.js es que podes elegir el metodo de rendering mas apropiado para tu caso de uso pagina a pagina. 
+La belleza de Next.js es que podes elegir el metodo de rendering mas apropiado para tu caso de uso pagina a pagina.

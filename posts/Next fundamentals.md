@@ -1,7 +1,7 @@
 ---
 title: Fundamentos de Next.js
 date: 4/3/2022
-description: Los fundamentos de Next para poder comprender mejor su funcionamiento y entender que metodo de rendering usar
+description: Si queres entender la diferencia entre Server-Side Rendering, Static-Site Generetion y Client Side Rendering, definitivamente vas a querer leer este post. 
 howItTakes: 9 minutos 
 ---
 

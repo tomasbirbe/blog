@@ -5,7 +5,7 @@ import { getPostData, getPostsIds } from '../../lib/posts';
 export default function Post({ post }) {
   return (
     <Container maxW={{ base: '100%', sm: '500px', md: '600px', lg: '700px' }}>
-      <Stack paddingBlock={16} paddingInline={4} spacing={10}>
+      <Stack paddingBlock={16} paddingInline={2} spacing={10}>
         <Text as="h1" fontSize="3.5em" fontWeight="600" textAlign="center">
           {post.title}
         </Text>

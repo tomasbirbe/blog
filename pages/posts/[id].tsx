@@ -15,8 +15,8 @@ export default function Post({ post }) {
   );
 }
 
-export async function getStaticPaths() {
-  const paths = getPostsIds();
+export async function getStaticPaths({ locales }) {
+  const paths = getPostsIds(locales);
 
   return {
     paths,
@@ -24,8 +24,8 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
-  const post = await getPostData(params.id);
+export async function getStaticProps({ params, locale }) {
+  const post = await getPostData(params.id, locale);
 
   return {
     props: {

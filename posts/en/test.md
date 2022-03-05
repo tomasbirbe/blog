@@ -5,4 +5,4 @@ description:   If you want to undestand the difference between Server-Side Rende
 howItTakes: 9 minutes 
 ---
 
-Hola!
+Hello!

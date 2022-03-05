@@ -3,15 +3,16 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 
+import { useLang } from '../context/LangContext';
 import { formatDate } from '../lib/date';
 import { getPosts } from '../lib/posts';
 
-interface Params {
-  dataPosts: [{ title: string; date: string; id: string; description: string; howItTakes: string }];
-}
+// interface Params {
+//   dataPosts: [{ title: string; date: string; id: string; description: string; howItTakes: string }];
+// }
 
-export default function Home({ dataPosts }: Params) {
-  const [lang, setLang] = useState('es');
+export default function Home({ postsData }) {
+  const { lang, setLang } = useLang();
 
   return (
     <Container maxW={{ base: '100%', sm: '500px', md: '600px', lg: '700px' }}>
@@ -24,7 +25,7 @@ export default function Home({ dataPosts }: Params) {
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <Stack align="flex-end" paddingBlockStart={4}>
-        <Select defaultValue="es" width="125px" onChange={(e) => setLang(e.target.value)}>
+        <Select defaultValue={lang} width="125px" onChange={(e) => setLang(e.target.value)}>
           <option value="es">Español</option>
           <option value="en">English</option>
         </Select>
@@ -33,9 +34,9 @@ export default function Home({ dataPosts }: Params) {
         <Text as="h1" fontSize="3.5em" fontWeight="900" textAlign="center">
           Blommy
         </Text>
-        {dataPosts[lang].map((post) => {
+        {postsData[lang].map((post) => {
           return (
-            <Link key={post.id} href={`/posts/${post.id}`}>
+            <Link key={post.id} href={`/posts/${post.id}`} locale={lang}>
               <a>
                 <Stack
                   _hover={{ outline: '1px solid' }}
@@ -64,12 +65,12 @@ export default function Home({ dataPosts }: Params) {
   );
 }
 
-export async function getStaticProps() {
-  const dataPosts = getPosts();
+export async function getStaticProps({ locales }) {
+  const postsData = getPosts(locales);
 
   return {
     props: {
-      dataPosts,
+      postsData,
     },
   };
 }

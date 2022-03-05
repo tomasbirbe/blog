@@ -33,7 +33,7 @@ export default function Home({ postsData }: Params) {
         </Select>
       </Stack>
       <Stack paddingBlockStart={6} spacing={6}>
-        <Text as="h1" fontSize="3.5em" fontWeight="900" textAlign="center">
+        <Text as="h1" fontSize="4em" fontWeight="900" textAlign="center">
           Blommy
         </Text>
         {postsData[`${lang}`].map((post) => {

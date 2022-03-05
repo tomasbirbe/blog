@@ -49,12 +49,13 @@ export function getPosts(locales) {
 export function getPostsIds(locales) {
   const allPostsIds = locales.map((locale) => {
     const postsDirectory = path.join(process.cwd(), `/posts/${locale}`);
+
     const fileNames = fs.readdirSync(postsDirectory);
 
     const postsIds = fileNames.map((fileName) => {
       const id = fileName.replace(/\.md$/, '');
 
-      return { params: { id, locale } };
+      return { params: { id }, locale };
     });
 
     return postsIds;
@@ -69,8 +70,9 @@ export function getPostsIds(locales) {
   return allPostsIds.flat();
 }
 
-export async function getPostData(id: string, lang: string) {
+export async function getPost(id: string, lang: string) {
   const fullPath = path.join(process.cwd(), `/posts/${lang}/${id}.md`);
+
   const fileContent = fs.readFileSync(fullPath, 'utf8');
 
   const matterResult = matter(fileContent);

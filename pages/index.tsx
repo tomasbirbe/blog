@@ -1,18 +1,23 @@
 import { Container, Select, Stack, Text } from '@chakra-ui/react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 import { useLang } from '../context/LangContext';
 import { formatDate } from '../lib/date';
 import { getPosts } from '../lib/posts';
 
-// interface Params {
-//   dataPosts: [{ title: string; date: string; id: string; description: string; howItTakes: string }];
-// }
+interface Params {
+  postsData: [
+    { en: { title: string; date: string; id: string; description: string; howItTakes: string } },
+    { es: { title: string; date: string; id: string; description: string; howItTakes: string } },
+  ];
+}
 
-export default function Home({ postsData }) {
+export default function Home({ postsData }: Params) {
   const { lang, setLang } = useLang();
+  const router = useRouter();
 
   return (
     <Container maxW={{ base: '100%', sm: '500px', md: '600px', lg: '700px' }}>
@@ -34,7 +39,7 @@ export default function Home({ postsData }) {
         <Text as="h1" fontSize="3.5em" fontWeight="900" textAlign="center">
           Blommy
         </Text>
-        {postsData[lang].map((post) => {
+        {postsData[router.locale].map((post) => {
           return (
             <Link key={post.id} href={`/posts/${post.id}`} locale={lang}>
               <a>

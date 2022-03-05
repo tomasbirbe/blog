@@ -1,6 +1,6 @@
 import { Container, Stack, Text } from '@chakra-ui/react';
 
-import { getPostData, getPostsIds } from '../../lib/posts';
+import { getPost, getPostsIds } from '../../lib/posts';
 
 export default function Post({ post }) {
   return (
@@ -15,7 +15,7 @@ export default function Post({ post }) {
   );
 }
 
-export async function getStaticPaths({ locales }) {
+export async function getStaticPaths({ locales = ['es', 'en'] }) {
   const paths = getPostsIds(locales);
 
   return {
@@ -25,7 +25,7 @@ export async function getStaticPaths({ locales }) {
 }
 
 export async function getStaticProps({ params, locale }) {
-  const post = await getPostData(params.id, locale);
+  const post = await getPost(params.id, locale);
 
   return {
     props: {

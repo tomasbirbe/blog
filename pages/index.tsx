@@ -1,6 +1,7 @@
-import { Container, Select, Stack, Text } from '@chakra-ui/react';
+import { Container, Select, Stack, Text, useColorMode, Button } from '@chakra-ui/react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { useLang } from '../context/LangContext';
 import { formatDate } from '../lib/date';
@@ -15,6 +16,7 @@ interface Params {
 
 export default function Home({ postsData }: Params) {
   const { lang, setLang } = useLang();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Container maxW={{ base: '100%', sm: '500px', md: '600px', lg: '700px' }}>
@@ -26,7 +28,21 @@ export default function Home({ postsData }: Params) {
         />
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <Stack align="flex-end" paddingBlockStart={4}>
+      <Stack
+        align="flex-end"
+        flexDirection="row"
+        gap={4}
+        justify="flex-end"
+        paddingBlockStart={4}
+        spacing={0}
+      >
+        <Button paddingInline={2} width="25px" onClick={toggleColorMode}>
+          {colorMode === 'dark' ? (
+            <Image alt="" height={25} src="/sun-icon.svg" width={25} />
+          ) : (
+            <Image alt="" height={20} src="/moon-icon.svg" width={20} />
+          )}
+        </Button>
         <Select defaultValue={lang} width="125px" onChange={(e) => setLang(e.target.value)}>
           <option value="es">Español</option>
           <option value="en">English</option>

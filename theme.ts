@@ -13,27 +13,49 @@ export const theme = extendTheme({
     colors: {
       primary: {
         default: '#171D1C',
-        _light: '#32f',
+        _light: '#D6D5C9',
+      },
+      primaryInverted: {
+        default: '#D6D5C9',
+        _light: '#171D1C',
       },
       title: {
         default: 'white',
+        _light: 'black',
       },
       paragraph: {
         default: 'white',
+        _light: 'black',
+      },
+    },
+  },
+  components: {
+    Button: {
+      baseStyle: {
+        bg: 'primary',
+        border: '1px solid',
+        borderColor: 'primaryInverted',
+      },
+      defaultProps: {
+        variant: '',
+      },
+    },
+
+    Select: {
+      baseStyle: {
+        field: {
+          bg: 'primary',
+          border: '1px solid',
+          borderColor: 'primaryInverted',
+        },
+      },
+
+      defaultProps: {
+        variant: null,
       },
     },
   },
   styles: {
-    components: {
-      Text: {
-        baseStyle: {
-          background: 'red',
-        },
-        defaultProps: {
-          variant: '',
-        },
-      },
-    },
     global: ({ colorMode }) => ({
       ...cssReset,
       '*': {
@@ -47,7 +69,7 @@ export const theme = extendTheme({
         flexDirection: 'column',
         gap: '20px',
         p: {
-          fontWeight: '300',
+          fontWeight: () => (colorMode === 'dark' ? '300' : '500'),
           fontSize: '1.2em',
           maxInlineSize: '66ch',
           wordBreak: 'break-word',

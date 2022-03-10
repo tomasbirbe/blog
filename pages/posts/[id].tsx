@@ -4,9 +4,9 @@ import { getPost, getPostsIds } from '../../lib/posts';
 
 export default function Post({ post }) {
   return (
-    <Container maxW={{ base: '100%', sm: '500px', md: '600px', lg: '700px' }}>
+    <Container maxW={{ base: '100%', sm: '500px', md: '600px', lg: '900px' }}>
       <Stack paddingBlock={16} paddingInline={2} spacing={10}>
-        <Text as="h1" fontSize="3.5em" fontWeight="600" textAlign="center">
+        <Text as="h1" color="secondary" fontSize="3.5em" fontWeight="600" textAlign="center">
           {post.title}
         </Text>
         <div className="post" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />

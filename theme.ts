@@ -12,19 +12,23 @@ export const theme = extendTheme({
   semanticTokens: {
     colors: {
       primary: {
-        default: '#171D1C',
+        default: '#191919',
         _light: '#D6D5C9',
       },
       primaryInverted: {
         default: '#D6D5C9',
         _light: '#171D1C',
       },
+      secondary: {
+        default: '#D19C1D',
+        _light: '#8C1C13',
+      },
       title: {
         default: 'white',
         _light: 'black',
       },
       paragraph: {
-        default: 'white',
+        default: '#BDBDBD',
         _light: 'black',
       },
     },
@@ -59,7 +63,7 @@ export const theme = extendTheme({
     global: ({ colorMode }) => ({
       ...cssReset,
       '*': {
-        fontFamily: 'Source Serif Pro',
+        fontFamily: 'Poppins',
       },
       body: {
         bg: 'primary',
@@ -67,22 +71,32 @@ export const theme = extendTheme({
       '.post': {
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
+        gap: '30px',
+        alignItems: 'center',
+        color: 'paragraph',
         p: {
-          fontWeight: () => (colorMode === 'dark' ? '300' : '500'),
+          fontWeight: () => (colorMode === 'dark' ? '400' : '600'),
           fontSize: '1.2em',
           maxInlineSize: '66ch',
           wordBreak: 'break-word',
         },
         h2: {
-          paddingBlockStart: 6,
-          fontWeight: '600',
+          maxInlineSize: '100%',
+          width: '100%',
+          paddingBlockStart: 16,
+          paddingInlineStart: 4,
+          fontWeight: '700',
           fontSize: '2em',
+          color: 'secondary',
         },
         h3: {
+          width: '100%',
+          maxInlineSize: '66ch',
+          paddingInlineStart: 4,
           paddingBlockStart: 4,
           fontWeight: '600',
           fontSize: '1.5em',
+          color: 'secondary',
         },
         ul: {
           paddingInlineStart: '6ch',
@@ -93,6 +107,9 @@ export const theme = extendTheme({
         img: {
           paddingInline: 4,
           marginBlock: 4,
+        },
+        a: {
+          color: 'secondary',
         },
       },
     }),

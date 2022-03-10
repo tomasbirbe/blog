@@ -5,9 +5,11 @@ description: Si queres entender la diferencia entre Server-Side Rendering, Stati
 howItTakes: 9 minutos 
 ---
 
+![Banner](/next-fundamentals/nextjs.jpg "Banner")
+
 Hola! Esto es una traduccion personal sobre la documentacion basica de Next.js. El objetivo es facilitar esta informacion ya que ademas de estar traducido al español, tambien es lo que me ayudo a entender mejor que es Next.js y sus metodos de rendering. Vamos a eso!
 
-## Que es compiling?
+## Compiling
 
 Compiling o tiempo de compilación, se refiere al proceso de tomar el código en un lenguaje y transformarlo en otro lenguaje o bien, en otra versión del mismo lenguaje
 
@@ -19,7 +21,7 @@ Por esto mismo es que TypeScript se compila a una versión de JavaScript que sea
 
 Este proceso ocurre durante la fase de desarrollo mientras editamos nuestro código como "preparación" para la fase de producción
 
-## Que es minifying?
+## Minifying
 
 Los desarrolladores escriben código que sea fácil de leer para los humanos. El código puede contener información extra que no es necesaria para que el código funcione, como comentarios, espacios, identaciones y múltiples líneas
 
@@ -31,13 +33,13 @@ El objetivo de este proceso es disminuir el peso de los archivos para mejorar el
 
 En Next.js, los archivos JavaScript y CSS son automaticamente minificados cuando el projecto esta en fase de produccion.
 
-## Que es bundling?
+## Bundling
 
 Habitualmente los desarrolladores "rompen" la aplicacion en modulos, componentes y funciones ya que, si no fuese asi, las aplicaciones serian monolitos llenos de informacion y seria ininteligible.
 
 ![Image about bundling process](/next-fundamentals/bundling.png "bundling-process")
 
-## Que es code splitting?
+## Code Splitting
 
 Normalmente los desarrolladores dividen la aplicacion en distintas paginas que pueden ser accedidas por distintas urls. Cada una de estas forma un unico entry point a la aplicacion.
 
@@ -75,7 +77,7 @@ Cuando buildeas tu aplicacion, Next.js va a transformar tu codigo en archivos op
 
 ---
 
-## Que es el rendering?
+## Rendering
 
 Hay una unidad inesquivable de trabajo para convertir el codigo que escribiste en React a una representacion HTML de tu interfaz. Este proceso se llama **rendering**.
 

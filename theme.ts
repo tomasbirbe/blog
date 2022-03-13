@@ -68,6 +68,9 @@ export const theme = extendTheme({
         display: 'flex',
         flexDirection: 'column',
         gap: '20px',
+        a: {
+          textColor: 'coral',
+        },
         p: {
           fontWeight: () => (colorMode === 'dark' ? '300' : '500'),
           fontSize: '1.2em',
